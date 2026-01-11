@@ -23,8 +23,9 @@ The project is divided into three isolated modules:
 ### Prerequisites
 Ensure you have the following installed on your machine:
 1.  **Java 17 Development Kit (JDK)**
-2.  **Docker Desktop** (Running)
-3.  **Git**
+2.  **Maven 3.6+** (or use the included Maven Wrapper)
+3.  **Docker Desktop** (Running)
+4.  **Git**
 
 ### Global Build Instructions
 Each folder contains its own `pom.xml` and build wrapper. You can build and run each service independently.
