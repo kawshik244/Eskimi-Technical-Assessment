@@ -5,6 +5,24 @@ A REST API application that calculates the number of days between two given date
 
 **Constraint:** This implementation strictly avoids using any built-in date libraries (like `java.time` or `java.util.Date`) for the calculation logic, relying instead on custom algorithms to handle leap years and days-in-month logic.
 
+##  Algorithm & Logic
+The core logic converts any given date into an **"Absolute Day Count"** (total days elapsed since Year 0).
+1. **Year Calculation:** Iterates from Year 0 to the current year, adding 365 days for standard years and 366 for leap years.
+2. **Month Calculation:** Adds days for completed months in the current year, using a lookup array for days in each month.
+    - *Leap Year Check:* If the year is a leap year, February is treated as having 29 days.
+3. **Difference:** The result is the absolute difference between the two "Absolute Day Counts".
+
+###  Corner Cases Handled
+- **Leap Years:** Correctly handles standard leap years (divisible by 4) and century rules (divisible by 400 but not 100).
+- **Same Date:** Returns `0` if start and end dates are identical.
+- **Year Boundaries:** Correctly calculates differences across multiple years or centuries (e.g., Dec 31st to Jan 1st).
+- **Input Validation:** Rejects non-existent dates (e.g., Feb 30th) or invalid formats.
+
+###  Error Handling
+The application uses a `GlobalExceptionHandler` to catch exceptions and return clean JSON responses:
+- **Invalid Date Format:** Returns `400 Bad Request` with a clear message if inputs are not `YYYY-MM-DD`.
+- **Logical Errors:** Returns `400 Bad Request` if days are out of range (e.g., month 13, day 32).
+
 ##  Prerequisites
 * Java 17
 * Maven 3.6+ (or use the included Maven Wrapper)
@@ -64,7 +82,9 @@ This will:
 
 3. Package the application as a JAR file
 
-**Success Criteria:** The build logs will show **BUILD SUCCESS** and verify that tests have passed. Unit tests are automatically executed as part of the build process to ensure logic correctness.
+**Success Criteria:** The build logs will show **BUILD SUCCESS** and verify that tests have passed.
+
+**Unit tests** are automatically executed as part of the build process to ensure logic correctness.
 
 
 ##  Running the application
@@ -101,10 +121,10 @@ Notes:
 
 Navigate to the dateCalculation directory and run:
 
-**Important:** Make sure the jar file is present in the target directory.
 ```bash
 docker build -t date-calculator-app .
 ```
+**Important:** Make sure the jar file is present in the target directory.
 ### Run the Container
 Run the following command to start the application on port 8060:
 ```bash
