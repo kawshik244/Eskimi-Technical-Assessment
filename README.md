@@ -6,17 +6,17 @@ This repository contains the solutions for the Eskimi Backend Engineer technical
 
 The project is divided into three isolated modules:
 
-* [cite_start]**`dateCalculation/`**: Task 1 - Calculates the absolute difference between two dates without using Java's built-in date libraries[cite: 3, 4].
-* [cite_start]**`NumberOfWords/`**: Task 2 - Converts numeric values (integers and decimals) into their English word representation[cite: 6].
-* [cite_start]**`dhakaWeather/`**: Task 3 - Retrieves weather data for Dhaka, calculates statistics (Min/Max/Avg), and converts values to text[cite: 15].
+* **`dateCalculation/`**: Task 1 - Calculates the absolute difference between two dates without using Java's built-in date libraries.
+* **`NumberOfWords/`**: Task 2 - Converts numeric values (integers and decimals) into their English word representation.
+* **`dhakaWeather/`**: Task 3 - Retrieves weather data for Dhaka, calculates statistics (Min/Max/Avg), and converts values to text.
 
 ##  Technology Stack
 
-* [cite_start]**Language:** Java 17 (JDK 17) [cite: 40]
+* **Language:** Java 17 (JDK 17) 
 * **Framework:** Spring Boot 3.2.0
 * **Build Tool:** Maven
-* [cite_start]**Containerization:** Docker 
-* [cite_start]**Testing:** JUnit 5 & Mockito [cite: 43]
+* **Containerization:** Docker 
+* **Testing:** JUnit 5 & Mockito 
 
 ##  Getting Started
 
